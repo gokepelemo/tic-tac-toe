@@ -7,7 +7,7 @@ const players = {
 };
 let turn,
   board,
-  winner = -1,
+  winner = DEFAULTTURN,
   turnCount = 0;
 updateId = 1;
 /*---- cached elements ----*/
@@ -66,7 +66,6 @@ const playTurn = (e) => {
     winner = "T";
     gameOver();
     createAlert(`We have a tie. Play Again?`, "message");
-
     return;
   } else {
     turnCount++;
@@ -85,8 +84,7 @@ const checkForTie = () => {
 };
 const switchTurns = () => {
   turn == "X" ? (turn = "O") : (turn = "X");
-  let currentPlayer = turn;
-  createAlert(`It's Player ${currentPlayer}'s turn`, "message");
+  createAlert(`It's Player ${turn}'s turn`, "message");
 };
 const render = () => {
   gameBoard.innerHTML = "&nbsp;";
@@ -111,7 +109,7 @@ const render = () => {
 const resetTurn = () => {
   turn = `X`;
   turnCount = 0;
-  winner = -1;
+  winner = DEFAULTTURN;
   controlButton.style.visibility = "hidden";
 };
 const adjacent = (row, column) => {
