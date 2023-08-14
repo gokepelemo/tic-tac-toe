@@ -62,10 +62,27 @@ const playTurn = (e) => {
       );
       return;
     }
+  } else if (checkForTie()) {
+    winner = "T";
+    gameOver();
+    createAlert(`We have a tie. Play Again?`, "message");
+
+    return;
   } else {
     turnCount++;
     switchTurns();
   }
+};
+const checkForTie = () => {
+  let count = 0;
+  board.forEach((row, i) => {
+    row.forEach((gamePosition, j) => {
+      if (gamePosition != 0) count++;
+    });
+  });
+  console.log(`Not a tie. ${count} positions played.`);
+  if (count == 9) return true;
+  return false;
 };
 const switchTurns = () => {
   turn == "X" ? (turn = "O") : (turn = "X");
