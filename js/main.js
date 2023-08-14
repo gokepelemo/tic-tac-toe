@@ -80,7 +80,6 @@ const checkForTie = () => {
       if (gamePosition != 0) count++;
     });
   });
-  console.log(`Not a tie. ${count} positions played.`);
   if (count == 9) return true;
   return false;
 };
