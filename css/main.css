@@ -22,7 +22,8 @@ main {
     border: 1px solid black;
     width: 15rem;
     height: 15rem;
-    transition: var(--transition)
+    transition: var(--transition);
+    cursor: pointer;
 }
 .X:before,.O:before {
     content: 'X';
