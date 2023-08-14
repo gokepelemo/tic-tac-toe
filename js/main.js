@@ -20,7 +20,7 @@ const controlButton = document.getElementById("control");
 const createAlert = (msg, position) => {
   if (msg == "reset") {
     messagePane.innerHTML = "&nbsp;";
-    alertPane.innerHTML = "&nbsp";
+    alertPane.innerHTML = "&nbsp;";
   }
   switch (position) {
     case "alert":
@@ -165,4 +165,4 @@ const init = () => {
 init();
 /*---- event listeners ----*/
 gameBoard.addEventListener("click", playTurn);
-controlButton.addEventListener("click", render);
+controlButton.addEventListener("click", init);
