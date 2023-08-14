@@ -120,19 +120,18 @@ const adjacent = (row, column) => {
     rCount = 2,
     value = board[row][column];
   if (value == 0) return false;
-  // diagonal left to right
   for (let i = 0; i <= 2; i++) {
     if (board[i][i] == value) count++;
     //console.log("tests the board, diagonal left bottom to right top")
     if (count == 3) return true;
   }
-  // diagonal right top to left bottom
+  // diagonal right bottom to left top
   count = 0;
   for (let i = 0; i <= 2; i++) {
     if (board[i][rCount] == value) count++;
     rCount--;
   }
-  //console.log("tests the board, diagonal right top to left bottom")
+  //console.log("tests the board, diagonal right bottom to left top")
   if (count == 3) return true;
 
   //horizontal north of the board
