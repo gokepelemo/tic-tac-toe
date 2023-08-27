@@ -14,7 +14,6 @@ updateId = 1;
 const messagePane = document.getElementById("message");
 const alertPane = document.getElementById("alert");
 const gameBoard = document.getElementById("gameplay");
-const infoPane = document.getElementById("infopane");
 const controlButton = document.getElementById("control");
 /*---- functions ----*/
 const createAlert = (msg, position) => {
@@ -86,7 +85,7 @@ const switchTurns = () => {
   turn == "X" ? (turn = "O") : (turn = "X");
   createAlert(`It's Player ${turn}'s turn`, "message");
 };
-const render = () => {
+const renderBoard = () => {
   gameBoard.innerHTML = "&nbsp;";
   board = [
     [0, 0, 0],
@@ -103,6 +102,9 @@ const render = () => {
       gameBoard.appendChild(position);
     });
   });
+}
+const render = () => {
+  renderBoard();
   resetTurn();
   switchTurns();
 };
